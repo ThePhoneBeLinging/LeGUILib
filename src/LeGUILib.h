@@ -14,7 +14,7 @@
 class LeGUILib
 {
 public:
-    LeGUILib() = default;
+    LeGUILib();
     ~LeGUILib() = default;
     template <typename T>
     std::shared_ptr<T> createElement();

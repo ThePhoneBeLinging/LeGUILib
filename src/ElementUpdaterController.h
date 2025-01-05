@@ -4,15 +4,18 @@
 
 #ifndef ELEMENTUPDATERCONTROLLER_H
 #define ELEMENTUPDATERCONTROLLER_H
-
+#include <list>
 
 
 class ElementUpdaterController
 {
 public:
-    ElementUpdaterController();
+    ElementUpdaterController() = default;
     void markElementAsDirty(int id);
+    std::list<int> getDirtyElements();
 private:
+    std::mutex mutex_;
+    std::list<int> dirtyElements_;
 };
 
 

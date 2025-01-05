@@ -3,6 +3,9 @@
 //
 
 #include "LeGUILib.h"
+LeGUILib::LeGUILib() : elementUpdater_(std::make_shared<ElementUpdaterController>())
+{
+}
 
 template <typename T>
 std::shared_ptr<T> LeGUILib::createElement()
@@ -14,3 +17,4 @@ std::shared_ptr<T> LeGUILib::createElement()
 
     return element;
 }
+
