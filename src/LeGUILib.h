@@ -10,15 +10,18 @@
 #include "GUIElements/GUIElement.h"
 
 
+
 class LeGUILib
 {
 public:
     LeGUILib() = default;
     ~LeGUILib() = default;
-    void registerElement(const std::shared_ptr<GUIElement>& element);
+    template <typename T>
+    std::shared_ptr<T> createElement();
     void registerUpdate(int id);
     void launchGUI();
 private:
+    std::shared_ptr<ElementUpdaterController> elementUpdater_;
     std::vector<std::shared_ptr<GUIElement>> elementsForDrawing_;
     std::vector<std::weak_ptr<GUIElement>> weakElements_;
 };

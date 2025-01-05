@@ -9,6 +9,8 @@ add_library(LeGUILib SHARED
         GUIElements/GUIElement.h
         GUIElements/Text.cpp
         GUIElements/Text.h
+        ElementUpdaterController.cpp
+        ElementUpdaterController.h
 )
 
 target_include_directories(LeGUILib PUBLIC include)

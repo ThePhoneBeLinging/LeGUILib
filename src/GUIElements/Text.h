@@ -4,17 +4,24 @@
 
 #ifndef TEXT_H
 #define TEXT_H
+#include <string>
+
+#include "GUIElement.h"
 
 
-
-class Text
+class Text : public GUIElement
 {
 public:
-    Text();
-    ~Text();
+    Text() = default;
+    ~Text() override = default;
+    void draw() override;
+    void setText(const std::string& text);
+    const std::string& getText();
+
+
 
 private:
-
+    std::string text_;
 };
 
 

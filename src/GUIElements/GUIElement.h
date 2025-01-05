@@ -4,6 +4,7 @@
 
 #ifndef GUIELEMENT_H
 #define GUIELEMENT_H
+#include "../ElementUpdaterController.h"
 
 
 class GUIElement
@@ -22,8 +23,14 @@ public:
         id_ = id;
     }
 
-private:
+    void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdateController)
+    {
+        elementUpdateController_ = elementUpdateController;
+    }
+
+protected:
     int id_{};
+    std::shared_ptr<ElementUpdaterController> elementUpdateController_;
 };
 
 
