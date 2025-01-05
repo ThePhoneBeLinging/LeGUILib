@@ -11,7 +11,6 @@ class GUIElement
 {
 public:
     GUIElement() = default;
-    virtual ~GUIElement() = 0;
     virtual void draw() = 0;
 
     [[nodiscard]] int getID() const

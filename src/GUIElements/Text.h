@@ -13,7 +13,7 @@ class Text : public GUIElement
 {
 public:
     Text() = default;
-    ~Text() override = default;
+    ~Text() = default;
     void draw() override;
     void setText(const std::string& text);
     const std::string& getText();

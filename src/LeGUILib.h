@@ -18,7 +18,6 @@ public:
     ~LeGUILib() = default;
     template <typename T>
     std::shared_ptr<T> createElement();
-    void registerUpdate(int id);
     void launchGUI();
 private:
     std::shared_ptr<ElementUpdaterController> elementUpdater_;
