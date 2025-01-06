@@ -21,6 +21,7 @@ int GUIElement::getID() const
 void GUIElement::setX(int x)
 {
     x_ = x;
+    elementUpdater_->markElementAsDirty(id_);
 }
 
 int GUIElement::getX() const
@@ -31,6 +32,7 @@ int GUIElement::getX() const
 void GUIElement::setY(int y)
 {
     y_ = y;
+    elementUpdater_->markElementAsDirty(id_);
 }
 
 int GUIElement::getY() const
@@ -41,14 +43,17 @@ int GUIElement::getY() const
 void GUIElement::setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater)
 {
     elementUpdater_ = elementUpdater;
+    elementUpdater_->markElementAsDirty(id_);
 }
 
 void GUIElement::setColor(int red, int green, int blue)
 {
     color_ = std::make_shared<Color>(red, green, blue,255);
+    elementUpdater_->markElementAsDirty(id_);
 }
 
 void GUIElement::setColor(int red, int green, int blue, int alpha)
 {
     color_ = std::make_shared<Color>(red, green, blue, alpha);
+    elementUpdater_->markElementAsDirty(id_);
 }
