@@ -3,13 +3,23 @@
 //
 
 #include "LeGUILib/LeGUILib.h"
+
+#include "raylib.h"
+
 LeGUILib::LeGUILib() : elementUpdater_(std::make_shared<ElementUpdaterController>())
 {
 }
 
 void LeGUILib::launchGUI()
 {
+    InitWindow(1280, 720, "LeGUI");
 
+    while (!WindowShouldClose())
+    {
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+        EndDrawing();
+    }
 }
 
 /*
