@@ -17,9 +17,16 @@ public:
     virtual void draw() = 0;
     void setID(int id);
     int getID() const;
+    void setX(int x);
+    int getX() const;
+    void setY(int y);
+    int getY() const;
     void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater);
 protected:
     int id_;
+    int x_;
+    int y_;
+    int z_;
     std::shared_ptr<ElementUpdaterController> elementUpdater_;
 };
 
