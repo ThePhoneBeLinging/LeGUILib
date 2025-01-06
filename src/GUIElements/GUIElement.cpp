@@ -42,3 +42,13 @@ void GUIElement::setElementUpdater(std::shared_ptr<ElementUpdaterController> ele
 {
     elementUpdater_ = elementUpdater;
 }
+
+void GUIElement::setColor(int red, int green, int blue)
+{
+    color_ = std::make_shared<Color>(red, green, blue,255);
+}
+
+void GUIElement::setColor(int red, int green, int blue, int alpha)
+{
+    color_ = std::make_shared<Color>(red, green, blue, alpha);
+}

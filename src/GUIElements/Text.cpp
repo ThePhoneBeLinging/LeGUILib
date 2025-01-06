@@ -6,9 +6,11 @@
 
 #include <string>
 
+#include "raylib.h"
+
 void Text::draw()
 {
-    // TODO
+    DrawText(text_.c_str(),x_,y_,fontSize_,*color_);
 }
 
 void Text::setText(const std::string& text)

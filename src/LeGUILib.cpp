@@ -18,6 +18,10 @@ void LeGUILib::launchGUI()
     {
         BeginDrawing();
         ClearBackground(RAYWHITE);
+        for (const auto& element : weakElements_)
+        {
+            element.lock()->draw();
+        }
         EndDrawing();
     }
 }

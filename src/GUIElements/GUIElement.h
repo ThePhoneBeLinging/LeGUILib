@@ -6,6 +6,7 @@
 #define GUIELEMENT_H
 #include <memory>
 
+#include "raylib.h"
 #include "../ElementUpdaterController.h"
 
 
@@ -22,11 +23,14 @@ public:
     void setY(int y);
     int getY() const;
     void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater);
+    void setColor(int red, int green, int blue);
+    void setColor(int red, int green, int blue, int alpha);
 protected:
     int id_;
     int x_;
     int y_;
     int z_;
+    std::shared_ptr<Color> color_;
     std::shared_ptr<ElementUpdaterController> elementUpdater_;
 };
 
