@@ -18,3 +18,13 @@ const std::string& Text::getText()
 {
     return text_;
 }
+
+void Text::setFontSize(int fontSize)
+{
+    fontSize_ = fontSize;
+}
+
+int Text::getFontSize()
+{
+    return fontSize_;
+}

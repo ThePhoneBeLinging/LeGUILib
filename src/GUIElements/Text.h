@@ -17,11 +17,13 @@ public:
     void draw() override;
     void setText(const std::string& text);
     const std::string& getText();
-
+    void setFontSize(int fontSize);
+    int getFontSize();
 
 
 private:
     std::string text_;
+    int fontSize_;
 };
 
 
