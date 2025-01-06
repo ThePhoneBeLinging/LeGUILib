@@ -1,35 +1,26 @@
 //
-// Created by Elias Aggergaard Larsen on 04/01/2025.
+// Created by eal on 1/6/25.
 //
 
 #ifndef GUIELEMENT_H
 #define GUIELEMENT_H
+#include <memory>
+
 #include "../ElementUpdaterController.h"
 
 
 class GUIElement
 {
 public:
-    GUIElement() = default;
+    GUIElement();
+    virtual ~GUIElement() = default;
     virtual void draw() = 0;
-
-    [[nodiscard]] int getID() const
-    {
-        return id_;
-    }
-    void setID(const int id)
-    {
-        id_ = id;
-    }
-
-    void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdateController)
-    {
-        elementUpdateController_ = elementUpdateController;
-    }
-
+    void setID(int id);
+    int getID() const;
+    void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater);
 protected:
-    int id_{};
-    std::shared_ptr<ElementUpdaterController> elementUpdateController_;
+    int id_;
+    std::shared_ptr<ElementUpdaterController> elementUpdater_;
 };
 
 

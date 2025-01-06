@@ -5,12 +5,9 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_library(LeGUILib SHARED
         LeGUILib.cpp
-        LeGUILib.h
-        GUIElements/GUIElement.h
         GUIElements/Text.cpp
-        GUIElements/Text.h
         ElementUpdaterController.cpp
         ElementUpdaterController.h
+        GUIElements/GUIElement.cpp
+        GUIElements/GUIElement.h
 )
-
-target_include_directories(LeGUILib PUBLIC include)

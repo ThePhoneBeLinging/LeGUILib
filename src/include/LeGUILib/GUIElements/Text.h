@@ -6,7 +6,7 @@
 #define TEXT_H
 #include <string>
 
-#include "GUIElement.h"
+#include "../GUIElements/GUIElement.h"
 
 
 class Text : public GUIElement

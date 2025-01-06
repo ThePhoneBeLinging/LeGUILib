@@ -2,11 +2,17 @@
 // Created by Elias Aggergaard Larsen on 04/01/2025.
 //
 
-#include "LeGUILib.h"
+#include "LeGUILib/LeGUILib.h"
 LeGUILib::LeGUILib() : elementUpdater_(std::make_shared<ElementUpdaterController>())
 {
 }
 
+void LeGUILib::launchGUI()
+{
+
+}
+
+/*
 template <typename T>
 std::shared_ptr<T> LeGUILib::createElement()
 {
@@ -18,3 +24,4 @@ std::shared_ptr<T> LeGUILib::createElement()
     return element;
 }
 
+*/

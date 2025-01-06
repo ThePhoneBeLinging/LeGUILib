@@ -5,6 +5,7 @@
 #ifndef ELEMENTUPDATERCONTROLLER_H
 #define ELEMENTUPDATERCONTROLLER_H
 #include <list>
+#include <mutex>
 
 
 class ElementUpdaterController
