@@ -27,18 +27,17 @@ void LeGUILib::launchGUI()
         EndDrawing();
 
         lock.lock();
-        for (const auto& elementIndices : elementUpdater_->getDirtyElements())
-        {
-            elementsForDrawing_[elementIndices] = weakElements_[elementIndices].lock()->clone();
-        }
-
+        updateDirtyElements();
         lock.unlock();
     }
 }
 
 void LeGUILib::updateDirtyElements()
 {
-
+    for (const auto& elementIndices : elementUpdater_->getDirtyElements())
+    {
+        elementsForDrawing_[elementIndices] = weakElements_[elementIndices].lock()->clone();
+    }
 }
 
 /*
