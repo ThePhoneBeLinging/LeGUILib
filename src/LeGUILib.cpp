@@ -13,6 +13,7 @@ LeGUILib::LeGUILib() : elementUpdater_(std::make_shared<ElementUpdaterController
 void LeGUILib::launchGUI()
 {
     InitWindow(1280, 720, "LeGUI");
+    SetTargetFPS(60);
     std::unique_lock lock(weakElementsMutex_);
     lock.unlock();
     while (!WindowShouldClose())
