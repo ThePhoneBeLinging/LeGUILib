@@ -13,5 +13,7 @@ void ElementUpdaterController::markElementAsDirty(int id)
 std::list<int> ElementUpdaterController::getDirtyElements()
 {
     std::lock_guard guard(mutex_);
-    return dirtyElements_;
+    auto dirtyElements = dirtyElements_;
+    dirtyElements_.clear();
+    return dirtyElements;
 }

@@ -13,17 +13,31 @@ LeGUILib::LeGUILib() : elementUpdater_(std::make_shared<ElementUpdaterController
 void LeGUILib::launchGUI()
 {
     InitWindow(1280, 720, "LeGUI");
-
+    std::unique_lock lock(weakElementsMutex_);
+    lock.unlock();
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        for (const auto& element : weakElements_)
+        for (const auto& element : elementsForDrawing_)
         {
-            element.lock()->draw();
+            element->draw();
         }
         EndDrawing();
+
+        lock.lock();
+        for (const auto& elementIndices : elementUpdater_->getDirtyElements())
+        {
+            elementsForDrawing_[elementIndices] = weakElements_[elementIndices].lock()->clone();
+        }
+
+        lock.unlock();
     }
+}
+
+void LeGUILib::updateDirtyElements()
+{
+
 }
 
 /*

@@ -23,14 +23,17 @@ public:
         guiElement->setID(weakElements_.size());
         guiElement->setElementUpdater(elementUpdater_);
         weakElements_.emplace_back(guiElement);
+        elementsForDrawing_.emplace_back(guiElement->clone());
 
         return element;
     }
     void launchGUI();
 private:
+    void updateDirtyElements();
     std::shared_ptr<ElementUpdaterController> elementUpdater_;
-    std::vector<std::shared_ptr<GUIElement>> elementsForDrawing_;
+    std::vector<GUIElement*> elementsForDrawing_;
     std::vector<std::weak_ptr<GUIElement>> weakElements_;
+    std::mutex weakElementsMutex_;
 };
 
 

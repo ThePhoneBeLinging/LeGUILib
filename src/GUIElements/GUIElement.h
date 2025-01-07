@@ -14,6 +14,8 @@ class GUIElement
 {
 public:
     GUIElement();
+    explicit GUIElement(GUIElement* guiElement);
+    virtual GUIElement* clone() const = 0;
     virtual ~GUIElement() = default;
     virtual void draw() = 0;
     void setID(int id);
@@ -22,6 +24,8 @@ public:
     int getX() const;
     void setY(int y);
     int getY() const;
+    void setZ(int z);
+    int getZ() const;
     void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater);
     void setColor(int red, int green, int blue);
     void setColor(int red, int green, int blue, int alpha);
