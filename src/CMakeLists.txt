@@ -28,6 +28,7 @@ add_library(LeGUILib STATIC
         ElementUpdaterController.h
         GUIElements/GUIElement.cpp
         GUIElements/GUIElement.h
+        GUIElements/RectangleElement.cpp
 )
 
 target_link_libraries(LeGUILib PRIVATE raylib)
