@@ -4,7 +4,7 @@
 
 #ifndef IMAGEELEMENT_H
 #define IMAGEELEMENT_H
-#include "GUIElement.h"
+#include "../GUIElements/GUIElement.h"
 
 
 class ImageElement : public GUIElement

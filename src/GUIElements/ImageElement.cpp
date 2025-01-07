@@ -2,7 +2,10 @@
 // Created by eal on 7/1/25.
 //
 
-#include "ImageElement.h"
+#include <string>
+#include <LeGUILib/GUIElements/ImageElement.h>
+
+#include "raylib.h"
 
 ImageElement::ImageElement() : width_(0), height_(0), texture_(LoadTexture(""))
 {
