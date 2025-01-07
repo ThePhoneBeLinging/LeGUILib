@@ -18,9 +18,13 @@ public:
     [[nodiscard]] int getWidth() const;
     void setHeight(int height);
     [[nodiscard]] int getHeight() const;
+    void setRoundedEdge(double roundness);
+    [[nodiscard]] double getRoundedEdge() const;
+
 private:
     int width_;
     int height_;
+    double roundness_;
 };
 
 
