@@ -27,7 +27,7 @@ public:
     int getY() const;
     void setZ(int z);
     int getZ() const;
-    virtual bool isPointInside(int x, int y) const;
+    [[nodiscard]] virtual bool isPointInside(int x, int y) const;
     void onClick() const;
     void setOnClick(std::function<void()> onClick);
     void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater);
