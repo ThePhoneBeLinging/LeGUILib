@@ -71,11 +71,6 @@ void GUIElement::onClick() const
 
 void GUIElement::setOnClick(std::function<void()> onClick)
 {
-    onClick_ = onClick;
-}
-
-void GUIElement::setOnClick(std::function<void()> onClick)
-{
     onClick_ = std::move(onClick);
 }
 

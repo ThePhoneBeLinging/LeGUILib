@@ -20,6 +20,7 @@ public:
     [[nodiscard]] int getHeight() const;
     void setRoundedEdge(double roundness);
     [[nodiscard]] double getRoundedEdge() const;
+    bool isPointInside(int x, int y) const override;
 
 private:
     int width_;

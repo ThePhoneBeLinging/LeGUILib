@@ -52,3 +52,16 @@ double RectangleElement::getRoundedEdge() const
 {
     return roundness_;
 }
+
+bool RectangleElement::isPointInside(int x, int y) const
+{
+    if (x < x_ || y < y_)
+    {
+        return false;
+    }
+    if (x_ + width_ < x || y_ + height_ < y)
+    {
+        return false;
+    }
+    return true;
+}
