@@ -4,6 +4,8 @@
 
 #include "GUIElement.h"
 
+#include <utility>
+
 GUIElement::GUIElement() : id_(),x_(0),y_(0),z_(0), elementUpdater_(nullptr)
 {
 }
@@ -55,6 +57,21 @@ void GUIElement::setZ(int z)
 int GUIElement::getZ() const
 {
     return z_;
+}
+
+bool GUIElement::isPointInside(int x, int y) const
+{
+    return false;
+}
+
+void GUIElement::onClick() const
+{
+    onClick_();
+}
+
+void GUIElement::setOnClick(std::function<void()> onClick)
+{
+    onClick_ = std::move(onClick);
 }
 
 void GUIElement::setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater)

@@ -15,13 +15,3 @@ void ButtonElement::draw()
 {
     RectangleElement::draw();
 }
-
-void ButtonElement::onClick()
-{
-    onClickFunction_();
-}
-
-void ButtonElement::setOnClick(std::function<void()> onClickFunction)
-{
-    onClickFunction_ = std::move(onClickFunction);
-}

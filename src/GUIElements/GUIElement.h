@@ -4,6 +4,7 @@
 
 #ifndef GUIELEMENT_H
 #define GUIELEMENT_H
+#include <functional>
 #include <memory>
 
 #include "raylib.h"
@@ -26,6 +27,9 @@ public:
     int getY() const;
     void setZ(int z);
     int getZ() const;
+    virtual bool isPointInside(int x, int y) const;
+    void onClick() const;
+    void setOnClick(std::function<void()> onClick);
     void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater);
     void setColor(int red, int green, int blue);
     void setColor(int red, int green, int blue, int alpha);
@@ -36,6 +40,7 @@ protected:
     int z_;
     std::shared_ptr<Color> color_;
     std::shared_ptr<ElementUpdaterController> elementUpdater_;
+    std::function<void()> onClick_;
 };
 
 

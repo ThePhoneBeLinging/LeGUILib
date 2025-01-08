@@ -17,10 +17,7 @@ public:
     [[nodiscard]] ButtonElement* clone() const override;
     ~ButtonElement() override = default;
     void draw() override;
-    void onClick();
-    void setOnClick(std::function<void()> onClickFunction);
 private:
-    std::function<void()> onClickFunction_;
 };
 
 
