@@ -58,4 +58,9 @@ void LeGUILib::updateDirtyElements()
         auto elementSharedPTR = weakElements_[elementIndices].lock();
         elementsForDrawing_[elementIndices] = elementSharedPTR->clone();
     }
+    auto sortingLambda = [](const GUIElement* a, const GUIElement* b)
+    {
+        return a->getZ() > b->getZ();
+    };
+    std::sort(elementsForDrawing_.begin(), elementsForDrawing_.end(), sortingLambda);
 }
