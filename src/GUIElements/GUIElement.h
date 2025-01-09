@@ -15,7 +15,6 @@ class GUIElement
 {
 public:
     GUIElement();
-    explicit GUIElement(GUIElement* guiElement);
     virtual GUIElement* clone() const = 0;
     virtual ~GUIElement() = default;
     virtual void draw() = 0;
@@ -33,8 +32,6 @@ public:
     void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater);
     void setColor(int red, int green, int blue);
     void setColor(int red, int green, int blue, int alpha);
-    void lock();
-    void unlock();
 protected:
     int id_;
     int x_;
@@ -43,8 +40,6 @@ protected:
     std::shared_ptr<Color> color_;
     std::shared_ptr<ElementUpdaterController> elementUpdater_;
     std::function<void()> onClick_;
-    std::unique_lock<std::mutex> lock_;
-    std::mutex mutex_;
 };
 
 
