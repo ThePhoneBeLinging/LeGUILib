@@ -14,19 +14,38 @@ LeGUILib::LeGUILib() : elementUpdater_(std::make_shared<ElementUpdaterController
 void LeGUILib::launchGUI()
 {
     SetTargetFPS(60);
+    bool lmbPressed = false;
+    bool lookForClicks = false;
     while (!WindowShouldClose())
     {
         updateDirtyElements();
         BeginDrawing();
         ClearBackground(RAYWHITE);
+
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && not lmbPressed)
+        {
+            lookForClicks = true;
+            lmbPressed = true;
+        }
+        else if (lmbPressed && IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+        {
+            lmbPressed = false;
+        }
+
         for (const auto& element : elementsForDrawing_)
         {
-            if (element->isPointInside(GetMouseX(),GetMouseY()))
+            if (lookForClicks)
             {
-                element->onClick();
+                if (element->isPointInside(GetMouseX(),GetMouseY()))
+                {
+                    element->onClick();
+                }
             }
+
+
             element->draw();
         }
+        lookForClicks = false;
         EndDrawing();
     }
 }
