@@ -6,6 +6,7 @@
 #define ELEMENTUPDATERCONTROLLER_H
 #include <list>
 #include <mutex>
+#include <set>
 
 
 class ElementUpdaterController
@@ -13,10 +14,10 @@ class ElementUpdaterController
 public:
     ElementUpdaterController() = default;
     void markElementAsDirty(int id);
-    std::list<int> getDirtyElements();
+    std::set<int> getDirtyElements();
 private:
     std::mutex mutex_;
-    std::list<int> dirtyElements_;
+    std::set<int> dirtyElements_;
 };
 
 
