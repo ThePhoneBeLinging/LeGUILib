@@ -18,6 +18,7 @@ public:
     template <typename T>
     std::shared_ptr<T> createElement()
     {
+        std::lock_guard guardLock(weakElementsMutex_);
         auto element = std::make_shared<T>();
         std::shared_ptr<GUIElement> guiElement = std::static_pointer_cast<GUIElement>(element);
         guiElement->setID(weakElements_.size());
