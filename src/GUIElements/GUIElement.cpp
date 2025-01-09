@@ -10,13 +10,6 @@ GUIElement::GUIElement() : id_(),x_(0),y_(0),z_(0), elementUpdater_(nullptr)
 {
 }
 
-GUIElement::GUIElement(GUIElement* guiElement)
-{
-    id_ = guiElement->getID();
-    x_ = guiElement->getX();
-    y_ = guiElement->getY();
-}
-
 void GUIElement::setID(int id)
 {
     id_ = id;

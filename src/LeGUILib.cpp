@@ -13,7 +13,7 @@ LeGUILib::LeGUILib() : elementUpdater_(std::make_shared<ElementUpdaterController
 
 void LeGUILib::launchGUI()
 {
-
+    updateDirtyElements();
     SetTargetFPS(60);
     std::unique_lock lock(weakElementsMutex_);
     lock.unlock();
@@ -23,6 +23,10 @@ void LeGUILib::launchGUI()
         ClearBackground(RAYWHITE);
         for (const auto& element : elementsForDrawing_)
         {
+            if (element->isPointInside(GetMouseX(),GetMouseY()))
+            {
+                element->onClick();
+            }
             element->draw();
         }
         EndDrawing();
