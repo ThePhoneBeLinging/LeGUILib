@@ -84,3 +84,13 @@ void GUIElement::setColor(int red, int green, int blue, int alpha)
     color_ = std::make_shared<Color>(red, green, blue, alpha);
     elementUpdater_->markElementAsDirty(id_);
 }
+
+void GUIElement::lock()
+{
+    lock_.lock();
+}
+
+void GUIElement::unlock()
+{
+    lock_.unlock();
+}
