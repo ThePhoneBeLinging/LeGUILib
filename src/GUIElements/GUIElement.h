@@ -16,7 +16,7 @@ class GUIElement
 public:
     GUIElement();
     virtual GUIElement* clone() const = 0;
-    virtual ~GUIElement() = default;
+    virtual ~GUIElement();
     virtual void draw(int offsetX, int offsetY) = 0;
     void setID(int id);
     int getID() const;
@@ -40,6 +40,7 @@ protected:
     std::shared_ptr<Color> color_;
     std::shared_ptr<ElementUpdaterController> elementUpdater_;
     std::function<void()> onClick_;
+    std::mutex* mutex_;
 };
 
 
