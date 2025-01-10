@@ -34,7 +34,10 @@ void LeGUILib::launchGUI()
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
-        getSlide()->draw(0,0);
+        for (const auto& slide : slides_)
+        {
+            slide->draw(0,0);
+        }
 
         EndDrawing();
 
