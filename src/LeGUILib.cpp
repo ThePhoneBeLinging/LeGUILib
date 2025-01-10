@@ -4,11 +4,14 @@
 
 #include "LeGUILib/LeGUILib.h"
 
+#include <memory>
+
 #include "raylib.h"
 
-LeGUILib::LeGUILib() : elementUpdater_(std::make_shared<ElementUpdaterController>())
+LeGUILib::LeGUILib()
 {
     InitWindow(1280, 720, "LeGUI");
+    slides_.emplace_back(std::make_shared<Slide>());
 }
 
 void LeGUILib::launchGUI()
@@ -18,10 +21,7 @@ void LeGUILib::launchGUI()
     bool lookForClicks = false;
     while (!WindowShouldClose())
     {
-        updateDirtyElements();
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
-
+        getSlide()->updateDirtyElements();
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && not lmbPressed)
         {
             lookForClicks = true;
@@ -31,36 +31,23 @@ void LeGUILib::launchGUI()
         {
             lmbPressed = false;
         }
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
 
-        for (const auto& element : elementsForDrawing_)
-        {
-            if (lookForClicks)
-            {
-                if (element->isPointInside(GetMouseX(),GetMouseY()))
-                {
-                    element->onClick();
-                }
-            }
+        getSlide()->draw(0,0);
 
-
-            element->draw();
-        }
-        lookForClicks = false;
         EndDrawing();
+
+        if (lookForClicks)
+        {
+            slides_[0]->handleClicks(GetMouseX(), GetMouseY());
+        }
+
+        lookForClicks = false;
     }
 }
 
-void LeGUILib::updateDirtyElements()
+std::shared_ptr<Slide> LeGUILib::getSlide()
 {
-    std::lock_guard lock(weakElementsMutex_);
-    for (const auto& elementIndices : elementUpdater_->getDirtyElements())
-    {
-        auto elementSharedPTR = weakElements_[elementIndices].lock();
-        elementsForDrawing_[elementIndices] = elementSharedPTR->clone();
-    }
-    auto sortingLambda = [](const GUIElement* a, const GUIElement* b)
-    {
-        return a->getZ() > b->getZ();
-    };
-    std::sort(elementsForDrawing_.begin(), elementsForDrawing_.end(), sortingLambda);
+    return slides_[0];
 }

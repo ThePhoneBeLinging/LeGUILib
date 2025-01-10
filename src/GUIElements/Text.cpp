@@ -13,7 +13,7 @@ Text* Text::clone() const
     return new Text(*this);
 }
 
-void Text::draw()
+void Text::draw(int offsetX, int offsetY)
 {
     if (color_ != nullptr)
     {

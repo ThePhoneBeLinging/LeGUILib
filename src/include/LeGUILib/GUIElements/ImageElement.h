@@ -13,7 +13,7 @@ public:
     ImageElement();
     [[nodiscard]] ImageElement* clone() const override;
     ~ImageElement() override = default;
-    void draw() override;
+    void draw(int offsetX, int offsetY) override;
     void loadImage(const std::string& imagePath);
     void setWidth(int width);
     [[nodiscard]] int getWidth() const;

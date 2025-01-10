@@ -16,7 +16,7 @@ ImageElement* ImageElement::clone() const
     return new ImageElement(*this);
 }
 
-void ImageElement::draw()
+void ImageElement::draw(int offsetX, int offsetY)
 {
     DrawTexture(texture_,x_,y_,WHITE);
 }

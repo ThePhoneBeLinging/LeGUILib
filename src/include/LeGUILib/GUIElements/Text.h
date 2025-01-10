@@ -15,7 +15,7 @@ public:
     Text() = default;
     Text* clone() const override;
     ~Text() override = default;
-    void draw() override;
+    void draw(int offsetX, int offsetY) override;
     void setText(const std::string& text);
     const std::string& getText();
     void setFontSize(int fontSize);

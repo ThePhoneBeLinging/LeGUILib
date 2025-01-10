@@ -14,7 +14,7 @@ RectangleElement* RectangleElement::clone() const
     return new RectangleElement(*this);
 }
 
-void RectangleElement::draw()
+void RectangleElement::draw(int offsetX, int offsetY)
 {
     if (color_ != nullptr)
     {

@@ -59,7 +59,10 @@ bool GUIElement::isPointInside(int x, int y) const
 
 void GUIElement::onClick() const
 {
-    onClick_();
+    if (onClick_ != nullptr)
+    {
+        onClick_();
+    }
 }
 
 void GUIElement::setOnClick(std::function<void()> onClick)
