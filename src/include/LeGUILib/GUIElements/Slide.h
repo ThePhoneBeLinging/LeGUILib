@@ -26,7 +26,13 @@ public:
     }
     void updateDirtyElements();
     void draw(int offsetX, int offsetY);
-    void handleClicks(int x, int y);
+    /**
+     *
+     * @param x mouseX with offset
+     * @param y mouseY with offset
+     * @return returns true if an element was clicked, otherwise false.
+     */
+    bool handleClicks(int x, int y);
 
 private:
 
