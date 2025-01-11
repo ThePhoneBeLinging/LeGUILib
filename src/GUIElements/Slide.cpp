@@ -7,7 +7,7 @@
 #include <memory>
 #include "GUIElement.h"
 
-Slide::Slide() : elementUpdater_(std::make_shared<ElementUpdaterController>())
+Slide::Slide() : elementUpdater_(std::make_shared<ElementUpdaterController>()), offsetXOfSlide_(0), offsetYOfSlide_(0)
 {
 }
 
