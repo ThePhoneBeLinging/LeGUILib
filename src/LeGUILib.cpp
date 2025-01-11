@@ -48,13 +48,19 @@ void LeGUILib::launchGUI()
             lmbPressed = false;
             dragActive = false;
 
-            if (xOffset > screenWidth/2)
+            if (xOffset % screenWidth > screenWidth/2)
             {
-                xOffset += 1200;
+                if (xOffset < 0)
+                {
+                    xOffset += screenWidth;
+                }
             }
-            else if (xOffset < (-1 * screenWidth/2))
+            else if (xOffset % screenWidth < (-1 * screenWidth/2))
             {
-                xOffset -= 1200;
+                if (xOffset > screenWidth * (slides_.size() - 1) * -1)
+                {
+                    xOffset -= screenWidth;
+                }
             }
             xOffset -= xOffset % screenWidth;
         }
