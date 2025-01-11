@@ -33,6 +33,7 @@ public:
      * @return returns true if an element was clicked, otherwise false.
      */
     bool handleClicks(int x, int y);
+    void setOffset(int offsetX, int offsetY);
 
 private:
 
@@ -40,6 +41,8 @@ private:
     std::vector<GUIElement*> elementsForDrawing_;
     std::vector<std::weak_ptr<GUIElement>> weakElements_;
     std::mutex weakElementsMutex_;
+    int offsetXOfSlide_;
+    int offsetYOfSlide_;
 };
 
 

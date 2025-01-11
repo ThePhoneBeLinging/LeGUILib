@@ -8,14 +8,14 @@
 
 #include "raylib.h"
 
-LeGUILib::LeGUILib()
+LeGUILib::LeGUILib() : activeSlideIndex_(0)
 {
     InitWindow(1280, 720, "LeGUI");
-    slides_.emplace_back(std::make_shared<Slide>());
 }
 
 void LeGUILib::launchGUI()
 {
+    int screenWidth = 1280;
     SetTargetFPS(60);
     bool lmbPressed = false;
     bool lookForClicks = false;
@@ -30,10 +30,14 @@ void LeGUILib::launchGUI()
         if (dragActive)
         {
             xOffset += mousePos.first - lastMousePos.first;
-            yOffset += mousePos.second - lastMousePos.second;
+            //yOffset += mousePos.second - lastMousePos.second;
         }
 
-        getSlide()->updateDirtyElements();
+        for (const auto& slide : slides_)
+        {
+            slide->updateDirtyElements();
+        }
+
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && not lmbPressed)
         {
             lookForClicks = true;
@@ -43,6 +47,16 @@ void LeGUILib::launchGUI()
         {
             lmbPressed = false;
             dragActive = false;
+
+            if (xOffset > screenWidth/2)
+            {
+                xOffset += 1200;
+            }
+            else if (xOffset < (-1 * screenWidth/2))
+            {
+                xOffset -= 1200;
+            }
+            xOffset -= xOffset % screenWidth;
         }
         BeginDrawing();
         ClearBackground(RAYWHITE);
@@ -64,7 +78,14 @@ void LeGUILib::launchGUI()
     }
 }
 
-std::shared_ptr<Slide> LeGUILib::getSlide()
+void LeGUILib::addSlide(const std::shared_ptr<Slide>& slide)
 {
-    return slides_[0];
+    int screenWidth = 1280;
+    slide->setOffset(screenWidth * slides_.size(),0);
+    slides_.push_back(slide);
+}
+
+std::shared_ptr<Slide> LeGUILib::getSlide(int index)
+{
+    return slides_[index];
 }

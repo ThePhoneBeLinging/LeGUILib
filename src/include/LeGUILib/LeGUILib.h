@@ -15,10 +15,12 @@ public:
     ~LeGUILib() = default;
 
     void launchGUI();
-    std::shared_ptr<Slide> getSlide();
+    void addSlide(const std::shared_ptr<Slide>& slide);
+    std::shared_ptr<Slide> getSlide(int index);
+
 private:
-    void updateDirtyElements();
     std::vector<std::shared_ptr<Slide>> slides_;
+    int activeSlideIndex_;
 
 };
 

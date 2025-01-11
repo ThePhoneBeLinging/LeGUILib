@@ -28,6 +28,8 @@ void Slide::updateDirtyElements()
 
 void Slide::draw(int offsetX, int offsetY)
 {
+    offsetX += offsetXOfSlide_;
+    offsetY += offsetYOfSlide_;
     for (const auto& element : elementsForDrawing_)
     {
         element->draw(offsetX, offsetY);
@@ -36,6 +38,8 @@ void Slide::draw(int offsetX, int offsetY)
 
 bool Slide::handleClicks(int x, int y)
 {
+    x += offsetXOfSlide_;
+    y += offsetYOfSlide_;
     for (const auto& element : elementsForDrawing_)
     {
         if (element->isPointInside(x,y))
@@ -45,4 +49,10 @@ bool Slide::handleClicks(int x, int y)
         }
     }
     return false;
+}
+
+void Slide::setOffset(int offsetX, int offsetY)
+{
+    offsetXOfSlide_ = offsetX;
+    offsetYOfSlide_ = offsetY;
 }
