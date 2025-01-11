@@ -31,7 +31,6 @@ add_library(LeGUILib STATIC
         GUIElements/RectangleElement.cpp
         GUIElements/ImageElement.cpp
         GUIElements/Slide.cpp
-        GUIElements/Slide.h
 )
 
 target_link_libraries(LeGUILib PRIVATE raylib)
