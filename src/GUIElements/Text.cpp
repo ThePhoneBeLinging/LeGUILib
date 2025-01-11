@@ -19,7 +19,7 @@ void Text::draw(int offsetX, int offsetY)
     std::lock_guard lockGuard(*mutex_);
     if (color_ != nullptr)
     {
-        DrawText(text_.c_str(),x_,y_,fontSize_,*color_);
+        DrawText(text_.c_str(),x_ + offsetX,y_ + offsetY,fontSize_,*color_);
     }
 }
 
