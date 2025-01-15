@@ -2,7 +2,7 @@
 // Created by eal on 1/6/25.
 //
 
-#include "GUIElement.h"
+#include "LeGUILib/GUIElements/GUIElement.h"
 
 #include <utility>
 

@@ -27,7 +27,6 @@ add_library(LeGUILib STATIC
         ElementUpdaterController.cpp
         ElementUpdaterController.h
         GUIElements/GUIElement.cpp
-        GUIElements/GUIElement.h
         GUIElements/RectangleElement.cpp
         GUIElements/ImageElement.cpp
         GUIElements/Slide.cpp
