@@ -20,11 +20,18 @@ public:
     const std::string& getText();
     void setFontSize(int fontSize);
     int getFontSize();
-
+    /**
+     * 
+     * @param alignemnt 0 = Left, 1 = middle, 2 = right
+     */
+    void setAlignment(int alignemnt);
+    void setWidth(int width);
 
 private:
     std::string text_;
     int fontSize_;
+    int alignment_;
+    int width_;
 };
 
 
