@@ -21,7 +21,7 @@ void Slide::updateDirtyElements()
     }
     auto sortingLambda = [](const GUIElement* a, const GUIElement* b)
     {
-        return a->getZ() > b->getZ();
+        return a->getZ() < b->getZ();
     };
     std::sort(elementsForDrawing_.begin(), elementsForDrawing_.end(), sortingLambda);
 }
