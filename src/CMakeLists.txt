@@ -32,4 +32,4 @@ add_library(LeGUILib STATIC
         GUIElements/Slide.cpp
 )
 
-target_link_libraries(LeGUILib PRIVATE raylib)
+target_link_libraries(LeGUILib PUBLIC raylib)

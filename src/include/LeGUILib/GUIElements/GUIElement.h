@@ -20,9 +20,9 @@ public:
     virtual void draw(int offsetX, int offsetY) = 0;
     void setID(int id);
     int getID() const;
-    void setX(int x);
+    virtual void setX(int x);
     int getX() const;
-    void setY(int y);
+    virtual void setY(int y);
     int getY() const;
     void setZ(int z);
     int getZ() const;
