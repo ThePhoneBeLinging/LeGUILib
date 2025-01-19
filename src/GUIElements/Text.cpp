@@ -33,8 +33,11 @@ void Text::draw(int offsetX, int offsetY)
 void Text::setText(const std::string& text)
 {
     std::lock_guard lockGuard(*mutex_);
-    text_ = text;
-    elementUpdater_->markElementAsDirty(id_);
+    if (text_ != text)
+    {
+        text_ = text;
+        elementUpdater_->markElementAsDirty(id_);
+    }
 }
 
 const std::string& Text::getText()

@@ -19,6 +19,7 @@ void GUIElement::setID(int id)
 {
     std::lock_guard lockGuard(*mutex_);
     id_ = id;
+    elementUpdater_->markElementAsDirty(id_);
 }
 
 int GUIElement::getID() const

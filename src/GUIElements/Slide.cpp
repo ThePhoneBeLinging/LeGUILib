@@ -4,6 +4,7 @@
 
 #include "LeGUILib/GUIElements/Slide.h"
 
+#include <iostream>
 #include <memory>
 #include "LeGUILib/GUIElements/GUIElement.h"
 
@@ -23,7 +24,14 @@ void Slide::updateDirtyElements()
     {
         return a->getZ() < b->getZ();
     };
-    std::sort(elementsForDrawing_.begin(), elementsForDrawing_.end(), sortingLambda);
+    std::ranges::sort(elementsForDrawing_, sortingLambda);
+
+    for (int i = 0; i < elementsForDrawing_.size(); i++)
+    {
+        auto element = weakElements_[elementsForDrawing_[i]->getID()].lock();
+        element->setID(i);
+        elementsForDrawing_[i]->setID(i);
+    }
 }
 
 void Slide::draw(int offsetX, int offsetY)
