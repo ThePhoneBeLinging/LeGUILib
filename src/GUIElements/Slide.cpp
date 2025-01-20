@@ -6,6 +6,8 @@
 
 #include <iostream>
 #include <memory>
+#include <bits/ranges_algo.h>
+
 #include "LeGUILib/GUIElements/GUIElement.h"
 
 Slide::Slide() : elementUpdater_(std::make_shared<ElementUpdaterController>()), offsetXOfSlide_(0), offsetYOfSlide_(0)
