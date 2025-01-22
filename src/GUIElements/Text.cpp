@@ -40,6 +40,12 @@ void Text::setText(const std::string& text)
     }
 }
 
+void Text::setText(int text)
+{
+    auto stringText = std::to_string(text);
+    setText(stringText);
+}
+
 const std::string& Text::getText()
 {
     std::lock_guard lockGuard(*mutex_);

@@ -17,6 +17,7 @@ public:
     ~Text() override = default;
     void draw(int offsetX, int offsetY) override;
     void setText(const std::string& text);
+    void setText(int text);
     const std::string& getText();
     void setFontSize(int fontSize);
     int getFontSize();
