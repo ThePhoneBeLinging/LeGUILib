@@ -6,7 +6,6 @@
 
 #include <iostream>
 #include <memory>
-#include <bits/ranges_algo.h>
 
 #include "LeGUILib/GUIElements/GUIElement.h"
 
