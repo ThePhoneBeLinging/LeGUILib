@@ -23,6 +23,11 @@ void Text::draw(int offsetX, int offsetY)
         int widthOfText = MeasureText(text_.c_str(),fontSize_);
         offsetX += width_ / 2 - widthOfText / 2;
     }
+    if (alignment_ == 2)
+    {
+        int widthOfText = MeasureText(text_.c_str(),fontSize_);
+        offsetX += width_ - widthOfText;
+    }
 
     if (color_ != nullptr)
     {
