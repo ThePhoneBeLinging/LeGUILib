@@ -32,7 +32,7 @@ public:
      * @param y mouseY with offset
      * @return returns true if an element was clicked, otherwise false.
      */
-    bool handleClicks(int x, int y) const;
+    void handleClicks(int x, int y) const;
 
 private:
 

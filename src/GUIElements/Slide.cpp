@@ -43,15 +43,13 @@ void Slide::draw()
     }
 }
 
-bool Slide::handleClicks(int x, int y) const
+void Slide::handleClicks(int x, int y) const
 {
     for (const auto& element : elementsForDrawing_)
     {
         if (element->isPointInside(x,y))
         {
             element->onClick();
-            return true;
         }
     }
-    return false;
 }

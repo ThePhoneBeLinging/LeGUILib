@@ -33,6 +33,7 @@ void LeGUILib::launchGUI()
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && not lmbPressed)
         {
             lmbPressed = true;
+            slide_->handleClicks(mousePos.first,mousePos.second);
         }
         if (lmbPressed && IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
         {
