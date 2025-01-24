@@ -25,15 +25,14 @@ public:
         return element;
     }
     void updateDirtyElements();
-    void draw(int offsetX, int offsetY);
+    void draw();
     /**
      *
      * @param x mouseX with offset
      * @param y mouseY with offset
      * @return returns true if an element was clicked, otherwise false.
      */
-    bool handleClicks(int x, int y);
-    void setOffset(int offsetX, int offsetY);
+    bool handleClicks(int x, int y) const;
 
 private:
 
@@ -41,8 +40,6 @@ private:
     std::vector<GUIElement*> elementsForDrawing_;
     std::vector<std::weak_ptr<GUIElement>> weakElements_;
     std::mutex weakElementsMutex_;
-    int offsetXOfSlide_;
-    int offsetYOfSlide_;
 };
 
 

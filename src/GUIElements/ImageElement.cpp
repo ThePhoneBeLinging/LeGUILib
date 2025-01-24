@@ -17,10 +17,10 @@ ImageElement* ImageElement::clone() const
     return new ImageElement(*this);
 }
 
-void ImageElement::draw(int offsetX, int offsetY)
+void ImageElement::draw()
 {
     std::lock_guard lockGuard(*mutex_);
-    DrawTexture(texture_,x_ + offsetX,y_ + offsetY,WHITE);
+    DrawTexture(texture_,x_,y_,WHITE);
 }
 
 void ImageElement::loadImage(const std::string& imagePath)

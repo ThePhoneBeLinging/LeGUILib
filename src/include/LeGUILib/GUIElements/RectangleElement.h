@@ -13,7 +13,7 @@ public:
     RectangleElement();
     [[nodiscard]] RectangleElement* clone() const override;
     ~RectangleElement() override = default;
-    void draw(int offsetX, int offsetY) override;
+    void draw() override;
     void setWidth(int width);
     [[nodiscard]] int getWidth() const;
     void setHeight(int height);

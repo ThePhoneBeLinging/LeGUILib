@@ -17,7 +17,7 @@ public:
     GUIElement();
     virtual GUIElement* clone() const = 0;
     virtual ~GUIElement();
-    virtual void draw(int offsetX, int offsetY) = 0;
+    virtual void draw() = 0;
     void setID(int id);
     int getID() const;
     virtual void setX(int x);

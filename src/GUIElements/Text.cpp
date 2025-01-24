@@ -14,9 +14,11 @@ Text* Text::clone() const
     return new Text(*this);
 }
 
-void Text::draw(int offsetX, int offsetY)
+void Text::draw()
 {
     std::lock_guard lockGuard(*mutex_);
+    int offsetX = 0;
+    int offsetY = 0;
     // Handle middle alignment
     if (alignment_ == 1)
     {

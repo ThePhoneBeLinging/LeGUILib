@@ -16,11 +16,9 @@ public:
 
     void launchGUI();
     void addSlide(const std::shared_ptr<Slide>& slide);
-    std::shared_ptr<Slide> getSlide(int index);
 
 private:
-    std::vector<std::shared_ptr<Slide>> slides_;
-    int activeSlideIndex_;
+    std::shared_ptr<Slide> slide_;
 
 };
 

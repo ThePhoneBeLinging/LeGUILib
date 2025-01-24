@@ -9,7 +9,7 @@
 
 #include "LeGUILib/GUIElements/GUIElement.h"
 
-Slide::Slide() : elementUpdater_(std::make_shared<ElementUpdaterController>()), offsetXOfSlide_(0), offsetYOfSlide_(0)
+Slide::Slide() : elementUpdater_(std::make_shared<ElementUpdaterController>())
 {
 }
 
@@ -35,20 +35,16 @@ void Slide::updateDirtyElements()
     }
 }
 
-void Slide::draw(int offsetX, int offsetY)
+void Slide::draw()
 {
-    offsetX += offsetXOfSlide_;
-    offsetY += offsetYOfSlide_;
     for (const auto& element : elementsForDrawing_)
     {
-        element->draw(offsetX, offsetY);
+        element->draw();
     }
 }
 
-bool Slide::handleClicks(int x, int y)
+bool Slide::handleClicks(int x, int y) const
 {
-    x += offsetXOfSlide_;
-    y += offsetYOfSlide_;
     for (const auto& element : elementsForDrawing_)
     {
         if (element->isPointInside(x,y))
@@ -58,10 +54,4 @@ bool Slide::handleClicks(int x, int y)
         }
     }
     return false;
-}
-
-void Slide::setOffset(int offsetX, int offsetY)
-{
-    offsetXOfSlide_ = offsetX;
-    offsetYOfSlide_ = offsetY;
 }

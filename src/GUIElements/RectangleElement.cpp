@@ -15,12 +15,12 @@ RectangleElement* RectangleElement::clone() const
     return new RectangleElement(*this);
 }
 
-void RectangleElement::draw(int offsetX, int offsetY)
+void RectangleElement::draw()
 {
     std::lock_guard lockGuard(*mutex_);
     if (color_ != nullptr)
     {
-        auto rect = Rectangle(x_ + offsetX,y_ + offsetY,width_,height_);
+        auto rect = Rectangle(x_,y_,width_,height_);
         DrawRectangleRounded(rect,roundness_,4,*color_);
     }
 }
