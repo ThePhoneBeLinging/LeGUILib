@@ -16,7 +16,7 @@ LeGUILib::LeGUILib()
 void LeGUILib::launchGUI()
 {
     int screenWidth = 1280;
-    SetTargetFPS(60);
+    SetTargetFPS(10);
     //ToggleFullscreen();
     bool lmbPressed = false;
     bool lookForClicks = false;
@@ -25,7 +25,6 @@ void LeGUILib::launchGUI()
     int yOffset = 0;
     while (!WindowShouldClose())
     {
-        std::lock_guard lockGuard(mutex_);
         std::pair<int,int> mousePos = std::pair(GetMouseX(),GetMouseY());
         slide_->updateDirtyElements();
 
@@ -50,6 +49,5 @@ void LeGUILib::launchGUI()
 
 void LeGUILib::navigateTo(const std::shared_ptr<Slide>& slide)
 {
-    std::lock_guard lockGuard(mutex_);
     slide_ = slide;
 }

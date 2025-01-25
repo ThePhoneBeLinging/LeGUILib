@@ -18,7 +18,6 @@ public:
     void navigateTo(const std::shared_ptr<Slide>& slide);
 
 private:
-    std::mutex mutex_;
     std::shared_ptr<Slide> slide_;
 
 };
