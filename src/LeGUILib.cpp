@@ -25,9 +25,8 @@ void LeGUILib::launchGUI()
     int yOffset = 0;
     while (!WindowShouldClose())
     {
+        std::lock_guard lockGuard(mutex_);
         std::pair<int,int> mousePos = std::pair(GetMouseX(),GetMouseY());
-
-
         slide_->updateDirtyElements();
 
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && not lmbPressed)
@@ -49,7 +48,8 @@ void LeGUILib::launchGUI()
     }
 }
 
-void LeGUILib::addSlide(const std::shared_ptr<Slide>& slide)
+void LeGUILib::navigateTo(const std::shared_ptr<Slide>& slide)
 {
+    std::lock_guard lockGuard(mutex_);
     slide_ = slide;
 }

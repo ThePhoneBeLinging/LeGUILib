@@ -15,9 +15,10 @@ public:
     ~LeGUILib() = default;
 
     void launchGUI();
-    void addSlide(const std::shared_ptr<Slide>& slide);
+    void navigateTo(const std::shared_ptr<Slide>& slide);
 
 private:
+    std::mutex mutex_;
     std::shared_ptr<Slide> slide_;
 
 };
