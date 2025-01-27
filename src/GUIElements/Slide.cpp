@@ -25,7 +25,7 @@ void Slide::updateDirtyElements()
     {
         return a->getZ() < b->getZ();
     };
-    std::ranges::sort(elementsForDrawing_, sortingLambda);
+    std::sort(elementsForDrawing_.begin(),elementsForDrawing_.end(), sortingLambda);
 
     for (int i = 0; i < elementsForDrawing_.size(); i++)
     {
