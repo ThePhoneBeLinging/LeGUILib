@@ -4,5 +4,3 @@ project(LeGUILib)
 set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(src)
-
-target_include_directories(LeGUILib PUBLIC src/include)
