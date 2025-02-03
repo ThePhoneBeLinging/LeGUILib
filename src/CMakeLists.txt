@@ -25,12 +25,13 @@ add_library(LeGUILib STATIC
         LeGUILib.cpp
         GUIElements/Text.cpp
         ElementUpdaterController.cpp
-        ElementUpdaterController.h
         GUIElements/GUIElement.cpp
         GUIElements/RectangleElement.cpp
         GUIElements/ImageElement.cpp
         GUIElements/Slide.cpp
+        raylibIncludeFile.h
 )
 
 target_include_directories(LeGUILib PUBLIC include)
+target_link_libraries(LeGUILib PUBLIC TouchScreenSupport)
 target_link_libraries(LeGUILib PUBLIC raylib)

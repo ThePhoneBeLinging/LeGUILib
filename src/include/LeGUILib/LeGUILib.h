@@ -6,6 +6,9 @@
 #define LEGUILIB_H
 #include <memory>
 #include <vector>
+#include <TouchScreenSupport/EventController.h>
+#include <TouchScreenSupport/EventListener.h>
+
 #include "LeGUILib/GUIElements/Slide.h"
 
 class LeGUILib
@@ -19,6 +22,8 @@ public:
 
 private:
     std::shared_ptr<Slide> slide_;
+    std::unique_ptr<EventListener> eventListener_;
+    std::shared_ptr<EventController> eventController_;
 
 };
 

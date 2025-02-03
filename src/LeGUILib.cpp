@@ -1,16 +1,18 @@
 //
 // Created by Elias Aggergaard Larsen on 04/01/2025.
 //
-
+#include <TouchScreenSupport/EventListener.h>
+#include "raylibIncludeFile.h"
 #include "LeGUILib/LeGUILib.h"
-
 #include <memory>
 
-#include "raylib.h"
+
 
 LeGUILib::LeGUILib()
 {
     InitWindow(1280, 720, "LeGUI");
+    eventController_ = std::make_shared<EventController>();
+    eventListener_ = std::make_unique<EventListener>("/dev/input/by-path/platform-1f00080000.i2c-event",eventController_);
 }
 
 void LeGUILib::launchGUI()
