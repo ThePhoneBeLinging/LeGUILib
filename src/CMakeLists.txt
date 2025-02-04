@@ -33,5 +33,5 @@ add_library(LeGUILib STATIC
 )
 
 target_include_directories(LeGUILib PUBLIC include)
-target_link_libraries(LeGUILib PUBLIC TouchScreenSupport)
+target_link_libraries(LeGUILib PUBLIC TouchCore-CPP)
 target_link_libraries(LeGUILib PUBLIC raylib)
