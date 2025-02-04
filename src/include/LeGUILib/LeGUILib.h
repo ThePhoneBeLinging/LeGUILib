@@ -6,8 +6,8 @@
 #define LEGUILIB_H
 #include <memory>
 #include <vector>
-#include <TouchScreenSupport/EventController.h>
-#include <TouchScreenSupport/EventListener.h>
+#include <TouchCore-CPP/EventController.h>
+#include <TouchCore-CPP/EventListener.h>
 
 #include "LeGUILib/GUIElements/Slide.h"
 
