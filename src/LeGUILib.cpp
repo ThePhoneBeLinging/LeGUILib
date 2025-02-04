@@ -19,7 +19,7 @@ LeGUILib::LeGUILib()
 void LeGUILib::launchGUI()
 {
     int screenWidth = 1280;
-    //ToggleFullscreen();
+    ToggleFullscreen();
     bool lmbPressed = false;
     bool lookForClicks = false;
     std::pair<int,int> lastMousePos = std::pair(0, 0);
