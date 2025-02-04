@@ -27,15 +27,15 @@ void LeGUILib::launchGUI()
     int yOffset = 0;
     while (!WindowShouldClose())
     {
-        std::pair<int,int> mousePos = std::pair(GetMouseX(),GetMouseY());
-        slide_->updateDirtyElements();
+        auto activeFingers = eventController_->getFingerPositions();
 
-        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && not lmbPressed)
+        slide_->updateDirtyElements();
+        if (activeFingers.size() == 1 && not lmbPressed)
         {
             lmbPressed = true;
-            slide_->handleClicks(mousePos.first,mousePos.second);
+            slide_->handleClicks(activeFingers.front().first,activeFingers.front().second);
         }
-        if (lmbPressed && IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+        if (lmbPressed && activeFingers.empty())
         {
             lmbPressed = false;
         }
