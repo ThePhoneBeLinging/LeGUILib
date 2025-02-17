@@ -11,15 +11,16 @@
 LeGUILib::LeGUILib()
 {
     InitWindow(1280, 720, "LeGUI");
+    //ToggleFullscreen();
     SetTargetFPS(10);
-    eventController_ = std::make_shared<EventController>();
-    eventListener_ = std::make_unique<EventListener>("/dev/input/by-path/platform-1f00080000.i2c-event",eventController_);
+    //eventController_ = std::make_shared<EventController>();
+    //eventListener_ = std::make_unique<EventListener>("/dev/input/by-path/platform-1f00080000.i2c-event",eventController_);
 }
 
 void LeGUILib::launchGUI()
 {
     int screenWidth = 1280;
-    ToggleFullscreen();
+
     bool lmbPressed = false;
     bool lookForClicks = false;
     std::pair<int,int> lastMousePos = std::pair(0, 0);
@@ -27,7 +28,13 @@ void LeGUILib::launchGUI()
     int yOffset = 0;
     while (!WindowShouldClose())
     {
-        auto activeFingers = eventController_->getFingerPositions();
+        //auto activeFingers = eventController_->getFingerPositions();
+        std::vector<std::pair<int,int>> activeFingers = {};
+
+        if ((GetMouseX() != 0 || GetMouseY() != 0) && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+        {
+            activeFingers.emplace_back(GetMouseX(),GetMouseY());
+        }
 
         slide_->updateDirtyElements();
         if (activeFingers.size() == 1 && not lmbPressed)
