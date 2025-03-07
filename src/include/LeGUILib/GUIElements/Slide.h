@@ -37,7 +37,7 @@ public:
 private:
 
     std::shared_ptr<ElementUpdaterController> elementUpdater_;
-    std::vector<GUIElement*> elementsForDrawing_;
+    std::vector<std::shared_ptr<GUIElement>> elementsForDrawing_;
     std::vector<std::weak_ptr<GUIElement>> weakElements_;
     std::mutex weakElementsMutex_;
 };

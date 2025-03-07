@@ -21,7 +21,7 @@ void Slide::updateDirtyElements()
         auto elementSharedPTR = weakElements_[elementIndices].lock();
         elementsForDrawing_[elementIndices] = elementSharedPTR->clone();
     }
-    auto sortingLambda = [](const GUIElement* a, const GUIElement* b)
+    auto sortingLambda = [](const std::shared_ptr<GUIElement>& a, const std::shared_ptr<GUIElement>& b)
     {
         return a->getZ() < b->getZ();
     };

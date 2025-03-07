@@ -11,10 +11,10 @@ ImageElement::ImageElement() : width_(0), height_(0), texture_(LoadTexture(""))
 {
 }
 
-ImageElement* ImageElement::clone() const
+std::shared_ptr<GUIElement> ImageElement::clone() const
 {
     std::lock_guard lockGuard(*mutex_);
-    return new ImageElement(*this);
+    return std::make_shared<ImageElement>(*this);
 }
 
 void ImageElement::draw()

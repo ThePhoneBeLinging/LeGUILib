@@ -9,10 +9,10 @@ RectangleElement::RectangleElement() : width_(0), height_(0), roundness_(0)
 
 }
 
-RectangleElement* RectangleElement::clone() const
+std::shared_ptr<GUIElement> RectangleElement::clone() const
 {
     std::lock_guard lockGuard(*mutex_);
-    return new RectangleElement(*this);
+    return std::make_shared<RectangleElement>(*this);
 }
 
 void RectangleElement::draw()

@@ -15,7 +15,7 @@ class GUIElement
 {
 public:
     GUIElement();
-    virtual GUIElement* clone() const = 0;
+    virtual std::shared_ptr<GUIElement> clone() const = 0;
     virtual ~GUIElement();
     virtual void draw() = 0;
     void setID(int id);

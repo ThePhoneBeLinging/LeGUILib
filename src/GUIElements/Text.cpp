@@ -8,10 +8,10 @@
 
 #include "raylib.h"
 
-Text* Text::clone() const
+std::shared_ptr<GUIElement> Text::clone() const
 {
     std::lock_guard lockGuard(*mutex_);
-    return new Text(*this);
+    return std::make_shared<Text>(*this);
 }
 
 void Text::draw()

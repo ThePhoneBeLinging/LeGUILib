@@ -13,8 +13,7 @@ class Text : public GUIElement
 {
 public:
     Text() = default;
-    Text* clone() const override;
-    ~Text() override = default;
+    [[nodiscard]] std::shared_ptr<GUIElement> clone() const override;
     void draw() override;
     void setText(const std::string& text);
     void setText(int text);

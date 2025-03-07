@@ -11,8 +11,7 @@ class RectangleElement : public GUIElement
 {
 public:
     RectangleElement();
-    [[nodiscard]] RectangleElement* clone() const override;
-    ~RectangleElement() override = default;
+    [[nodiscard]] std::shared_ptr<GUIElement> clone() const override;
     void draw() override;
     void setWidth(int width);
     [[nodiscard]] int getWidth() const;

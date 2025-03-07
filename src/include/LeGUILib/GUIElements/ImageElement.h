@@ -11,8 +11,7 @@ class ImageElement : public GUIElement
 {
 public:
     ImageElement();
-    [[nodiscard]] ImageElement* clone() const override;
-    ~ImageElement() override = default;
+    [[nodiscard]] std::shared_ptr<GUIElement> clone() const override;
     void draw() override;
     void loadImage(const std::string& imagePath);
     void setWidth(int width);
