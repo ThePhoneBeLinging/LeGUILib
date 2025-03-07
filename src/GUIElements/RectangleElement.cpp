@@ -13,6 +13,7 @@ std::shared_ptr<GUIElement> RectangleElement::clone() const
 {
     std::lock_guard lockGuard(*mutex_);
     auto var = std::make_shared<RectangleElement>(*this);
+    var->newMutex();
     return var;
 }
 
