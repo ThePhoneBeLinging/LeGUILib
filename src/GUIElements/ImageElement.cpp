@@ -14,7 +14,9 @@ ImageElement::ImageElement() : width_(0), height_(0), texture_(LoadTexture(""))
 std::shared_ptr<GUIElement> ImageElement::clone() const
 {
     std::lock_guard lockGuard(*mutex_);
-    return std::make_shared<ImageElement>(*this);
+    auto var = std::make_shared<ImageElement>(*this);
+    var->newMutex();
+    return var;
 }
 
 void ImageElement::draw()

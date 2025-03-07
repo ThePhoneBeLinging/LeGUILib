@@ -32,6 +32,7 @@ public:
     void setElementUpdater(std::shared_ptr<ElementUpdaterController> elementUpdater);
     void setColor(int red, int green, int blue);
     void setColor(int red, int green, int blue, int alpha);
+    void newMutex();
 protected:
     int id_;
     int x_;

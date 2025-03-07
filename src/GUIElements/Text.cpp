@@ -11,7 +11,9 @@
 std::shared_ptr<GUIElement> Text::clone() const
 {
     std::lock_guard lockGuard(*mutex_);
-    return std::make_shared<Text>(*this);
+    auto var = std::make_shared<Text>(*this);
+    var->newMutex();
+    return var;
 }
 
 void Text::draw()
