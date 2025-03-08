@@ -19,7 +19,14 @@ void Slide::updateDirtyElements()
     for (const auto& elementIndices : elementUpdater_->getDirtyElements())
     {
         auto elementSharedPTR = weakElements_[elementIndices].lock();
-        elementsForDrawing_[elementIndices] = elementSharedPTR->clone();
+        if (elementSharedPTR)
+        {
+            elementsForDrawing_[elementIndices] = elementSharedPTR->clone();
+        }
+        else
+        {
+            weakElements_[elementIndices].reset();
+        }
     }
     auto sortingLambda = [](const std::shared_ptr<GUIElement>& a, const std::shared_ptr<GUIElement>& b)
     {
