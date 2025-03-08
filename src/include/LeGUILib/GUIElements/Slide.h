@@ -18,17 +18,18 @@ public:
         auto element = std::make_shared<T>();
         std::shared_ptr<GUIElement> guiElement = std::static_pointer_cast<GUIElement>(element);
         guiElement->setElementUpdater(elementUpdater_);
-        guiElement->setID(weakElements_.size());
         for (int i = 0; i < weakElements_.size() + 1; i++)
         {
             if (i == weakElements_.size())
             {
                 weakElements_.emplace_back(guiElement);
+                guiElement->setID(i);
                 break;
             }
             if (weakElements_[i].expired())
             {
                 weakElements_[i] = guiElement;
+                guiElement->setID(i);
                 break;
             }
         }

@@ -32,8 +32,11 @@ void Slide::updateDirtyElements()
 
     for (int i = 0; i < elementsForDrawing_.size(); i++)
     {
-        auto element = weakElements_[elementsForDrawing_[i]->getID()].lock();
-        element->setID(i);
+        auto sharedPTR = weakElements_[elementsForDrawing_[i]->getID()].lock();
+        if (sharedPTR)
+        {
+            sharedPTR->setID(i);
+        }
         elementsForDrawing_[i]->setID(i);
     }
 }
