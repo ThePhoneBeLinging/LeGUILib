@@ -19,7 +19,19 @@ public:
         std::shared_ptr<GUIElement> guiElement = std::static_pointer_cast<GUIElement>(element);
         guiElement->setElementUpdater(elementUpdater_);
         guiElement->setID(weakElements_.size());
-        weakElements_.emplace_back(guiElement);
+        for (int i = 0; i < weakElements_.size() + 1; i++)
+        {
+            if (i == weakElements_.size())
+            {
+                weakElements_.emplace_back(guiElement);
+                break;
+            }
+            if (weakElements_[i].expired())
+            {
+                weakElements_[i] = guiElement;
+                break;
+            }
+        }
         elementsForDrawing_.emplace_back(guiElement->clone());
 
         return element;
