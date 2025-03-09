@@ -24,16 +24,17 @@ public:
             {
                 weakElements_.emplace_back(guiElement);
                 guiElement->setID(i);
+                elementsForDrawing_.emplace_back(guiElement->clone());
                 break;
             }
             if (weakElements_[i].expired())
             {
                 weakElements_[i] = guiElement;
                 guiElement->setID(i);
+                elementsForDrawing_[i] = guiElement->clone();
                 break;
             }
         }
-        elementsForDrawing_.emplace_back(guiElement->clone());
 
         return element;
     }
