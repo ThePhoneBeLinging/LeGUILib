@@ -23,6 +23,10 @@ void Slide::updateDirtyElements()
         {
             elementsForDrawing_[elementIndices] = elementSharedPTR->clone();
         }
+        else
+        {
+            elementsForDrawing_[elementIndices] = nullptr;
+        }
     }
     auto sortingLambda = [](const std::shared_ptr<GUIElement>& a, const std::shared_ptr<GUIElement>& b)
     {
@@ -45,7 +49,10 @@ void Slide::draw()
 {
     for (const auto& element : elementsForDrawing_)
     {
-        element->draw();
+        if (element != nullptr)
+        {
+            element->draw();
+        }
     }
 }
 
