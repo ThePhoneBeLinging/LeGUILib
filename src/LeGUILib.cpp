@@ -8,7 +8,7 @@
 
 
 
-LeGUILib::LeGUILib()
+LeGUILib::LeGUILib() : keepRunning_(true)
 {
     InitWindow(1280, 720, "LeGUI");
     ToggleFullscreen();
@@ -26,7 +26,7 @@ void LeGUILib::launchGUI()
     std::pair<int,int> lastMousePos = std::pair(0, 0);
     int xOffset = 0;
     int yOffset = 0;
-    while (!WindowShouldClose())
+    while (!WindowShouldClose() && keepRunning_)
     {
         //auto activeFingers = eventController_->getFingerPositions();
         std::vector<std::pair<int,int>> activeFingers = {};
@@ -59,4 +59,9 @@ void LeGUILib::launchGUI()
 void LeGUILib::navigateTo(const std::shared_ptr<Slide>& slide)
 {
     slide_ = slide;
+}
+
+void LeGUILib::closeGUI()
+{
+    keepRunning_ = false;
 }

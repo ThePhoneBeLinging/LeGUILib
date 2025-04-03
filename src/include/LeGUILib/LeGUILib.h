@@ -19,8 +19,10 @@ public:
 
     void launchGUI();
     void navigateTo(const std::shared_ptr<Slide>& slide);
+    void closeGUI();
 
 private:
+    std::atomic_bool keepRunning_;
     std::shared_ptr<Slide> slide_;
     std::unique_ptr<EventListener> eventListener_;
     std::shared_ptr<EventController> eventController_;
