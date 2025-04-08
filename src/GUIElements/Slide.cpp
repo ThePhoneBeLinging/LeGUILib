@@ -30,6 +30,15 @@ void Slide::updateDirtyElements()
     }
     auto sortingLambda = [](const std::shared_ptr<GUIElement>& a, const std::shared_ptr<GUIElement>& b)
     {
+        if (a == nullptr)
+        {
+            return true;
+        }
+        if (b == nullptr)
+        {
+            return false;
+        }
+
         return a->getZ() < b->getZ();
     };
     std::sort(elementsForDrawing_.begin(),elementsForDrawing_.end(), sortingLambda);
