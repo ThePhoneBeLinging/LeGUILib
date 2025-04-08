@@ -32,11 +32,11 @@ void Slide::updateDirtyElements()
     {
         if (a == nullptr)
         {
-            return true;
+            return false;
         }
         if (b == nullptr)
         {
-            return false;
+            return true;
         }
 
         return a->getZ() < b->getZ();
