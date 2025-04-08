@@ -45,6 +45,10 @@ void Slide::updateDirtyElements()
 
     for (int i = 0; i < elementsForDrawing_.size(); i++)
     {
+        if (elementsForDrawing_[i] == nullptr)
+        {
+            continue;
+        }
         auto sharedPTR = weakElements_[elementsForDrawing_[i]->getID()].lock();
         if (sharedPTR)
         {
@@ -69,6 +73,10 @@ void Slide::handleClicks(int x, int y) const
 {
     for (const auto& element : elementsForDrawing_)
     {
+        if (element == nullptr)
+        {
+            continue;
+        }
         if (element->isPointInside(x,y))
         {
             element->onClick();
