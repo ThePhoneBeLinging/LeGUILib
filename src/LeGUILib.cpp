@@ -10,6 +10,7 @@
 
 LeGUILib::LeGUILib() : keepRunning_(true)
 {
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(1280, 720, "LeGUI");
     //ToggleFullscreen();
     //HideCursor();
