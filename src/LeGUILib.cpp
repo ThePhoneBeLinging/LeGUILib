@@ -15,7 +15,7 @@ LeGUILib::LeGUILib() : keepRunning_(true)
     SetTargetFPS(10);
     //eventController_ = std::make_shared<EventController>();
     //eventListener_ = std::make_unique<EventListener>("/dev/input/by-path/platform-1f00080000.i2c-event",eventController_);
-    toggleFullScreen();
+    //toggleFullScreen();
 }
 
 void LeGUILib::launchGUI()
