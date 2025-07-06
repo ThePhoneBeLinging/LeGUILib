@@ -8,12 +8,11 @@
 
 
 
-LeGUILib::LeGUILib() : keepRunning_(true), cursorStatus_(false)
+LeGUILib::LeGUILib() : keepRunning_(true)
 {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(1280, 720, "LeGUI");
     ToggleFullscreen();
-    HideCursor();
     SetTargetFPS(10);
     //eventController_ = std::make_shared<EventController>();
     //eventListener_ = std::make_unique<EventListener>("/dev/input/by-path/platform-1f00080000.i2c-event",eventController_);
@@ -71,13 +70,4 @@ void LeGUILib::closeGUI()
 void LeGUILib::toggleFullScreen()
 {
     ToggleFullscreen();
-    if (cursorStatus_)
-    {
-        HideCursor();
-    }
-    else
-    {
-        ShowCursor();
-    }
-    cursorStatus_ = !cursorStatus_;
 }
