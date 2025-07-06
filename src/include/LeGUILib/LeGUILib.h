@@ -21,7 +21,10 @@ public:
     void navigateTo(const std::shared_ptr<Slide>& slide);
     void closeGUI();
 
+    void toggleFullScreen();
+
 private:
+    bool cursorStatus_;
     std::atomic_bool keepRunning_;
     std::shared_ptr<Slide> slide_;
     std::unique_ptr<EventListener> eventListener_;

@@ -8,7 +8,7 @@
 
 
 
-LeGUILib::LeGUILib() : keepRunning_(true)
+LeGUILib::LeGUILib() : keepRunning_(true), cursorStatus_(false)
 {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(1280, 720, "LeGUI");
@@ -66,4 +66,18 @@ void LeGUILib::navigateTo(const std::shared_ptr<Slide>& slide)
 void LeGUILib::closeGUI()
 {
     keepRunning_ = false;
+}
+
+void LeGUILib::toggleFullScreen()
+{
+    ToggleFullscreen();
+    if (cursorStatus_)
+    {
+        HideCursor();
+    }
+    else
+    {
+        ShowCursor();
+    }
+    cursorStatus_ = !cursorStatus_;
 }
